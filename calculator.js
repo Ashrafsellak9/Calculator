@@ -8,7 +8,6 @@ let shouldResetDisplay = false;
 
 numberButtons.forEach(button => {
     button.addEventListener('click', () => {
-        // Get only the number from button (in case there's an icon)
         const number = button.textContent.trim().replace(/[^\d]/g, '');
         if (shouldResetDisplay) {
             display.value = '';
@@ -23,7 +22,6 @@ operatorButtons.forEach(button => {
         const buttonText = button.textContent.trim();
         let buttonAction = buttonText;
         
-        // Handle button text with icons
         if (buttonText.includes('=')) {
             buttonAction = '=';
         } else if (buttonText.includes('Clear')) {
@@ -31,7 +29,7 @@ operatorButtons.forEach(button => {
         } else if (buttonText.includes('Delete')) {
             buttonAction = 'Delete';
         } else {
-            // For operators, extract just the operator symbol
+
             buttonAction = buttonText.replace(/[^+\-*/]/g, '');
         }
         
